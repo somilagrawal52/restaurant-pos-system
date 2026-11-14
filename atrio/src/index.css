@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 30 33% 97%;
+    --foreground: 220 20% 14%;
+
+    --card: 30 25% 98%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 30 25% 98%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 30 38% 56%;
+    --primary-foreground: 30 33% 97%;
+
+    --secondary: 30 12% 92%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 30 10% 94%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 30 38% 56%;
+    --accent-foreground: 30 33% 97%;
+
+    --destructive: 0 65% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 89%;
+    --input: 30 15% 89%;
+    --ring: 30 38% 56%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 30 20% 96%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 30 38% 56%;
+    --sidebar-primary-foreground: 30 33% 97%;
+    --sidebar-accent: 30 15% 92%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 30 12% 90%;
+    --sidebar-ring: 30 38% 56%;
+
+    /* Custom Atrio tokens */
+    --surface-glass: 30 25% 99%;
+    --surface-glass-border: 30 15% 92%;
+    --surface-elevated: 0 0% 100%;
+
+    --status-available: 145 45% 48%;
+    --status-occupied: 0 65% 56%;
+    --status-reserved: 30 38% 56%;
+    --status-cleaning: 210 45% 58%;
+
+    --chart-1: 30 38% 56%;
+    --chart-2: 145 45% 48%;
+    --chart-3: 210 45% 58%;
+    --chart-4: 0 65% 56%;
+    --chart-5: 270 30% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'DM Serif Display', serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-[hsl(var(--surface-glass))] border border-[hsl(var(--surface-glass-border))] backdrop-blur-sm;
+    box-shadow: 0 4px 24px -4px hsl(var(--foreground) / 0.04), 0 1px 2px hsl(var(--foreground) / 0.02);
+  }
+
+  .glass-card-elevated {
+    @apply bg-[hsl(var(--surface-elevated))] border border-[hsl(var(--surface-glass-border))];
+    box-shadow: 0 8px 32px -8px hsl(var(--foreground) / 0.08), 0 2px 8px hsl(var(--foreground) / 0.04);
+  }
+
+  .status-available {
+    @apply bg-[hsl(var(--status-available))];
+  }
+  .status-occupied {
+    @apply bg-[hsl(var(--status-occupied))];
+  }
+  .status-reserved {
+    @apply bg-[hsl(var(--status-reserved))];
+  }
+  .status-cleaning {
+    @apply bg-[hsl(var(--status-cleaning))];
+  }
+
+  .text-status-available { color: hsl(var(--status-available)); }
+  .text-status-occupied { color: hsl(var(--status-occupied)); }
+  .text-status-reserved { color: hsl(var(--status-reserved)); }
+  .text-status-cleaning { color: hsl(var(--status-cleaning)); }
+}
